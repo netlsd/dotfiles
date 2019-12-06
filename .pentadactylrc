@@ -1,0 +1,215 @@
+set go=m
+noremap a A
+noremap m M 
+noremap M m
+noremap f F 
+noremap F f
+noremap P p
+noremap p P
+
+"关闭全部 
+map Q :qall<CR>
+map D :xall<CR>
+
+"改变标签，h前一个l后一个 
+"noremap h <C-p> 
+"noremap l <C-n>
+noremap h gT
+noremap l gt
+
+"一些快捷键设定 
+"noremap tm :tabopen https://mail.google.com<CR> noremap tv
+":tabopen http://www.verycd.com<CR> noremap th :tabopen
+"http://www.hoopchina.com<CR> noremap tl :tabopen http://luo.bo<CR> noremap ta
+":tabopen http://acfun.cn<CR> noremap om :open https://mail.google.com<CR>
+"noremap ov :open http://www.verycd.com<CR> noremap oh :open
+"http://www.hoopchina.com<CR> noremap ol :open http://luo.bo<CR> noremap oa
+":open http://acfun.cn<CR> "noremap A :tabopen http://www.verycd.com<CR>
+":tabopen http://www.hoopchina.com<CR> :tabopen http://luo.bo<CR> :tabopen
+"http://acfun.cn<CR>b1<CR>d noremap A :t http://www.verycd.com,
+"http://www.hoopchina.com, http://acfun.cn, http://luo.bo<CR>b1<CR>d
+
+noremap th :tabopen http://www.hoopchina.com<CR>
+noremap oh :topen http://www.hoopchina.com<CR>
+noremap tc :tabopen http://www.cnbeta.com<CR>
+noremap oc :topen http://www.cnbeta.com<CR>
+
+map <C-I> :pageinfo<CR>
+
+"在有无菜单、地址栏之间切换： 
+map <C-Up> :se go=mnsT<CR> 
+map <C-Down> :se go=n<CR>
+
+"开启关闭flash,需要插件支持 "map <silent> <C-p> :flashtoggle<CR>
+
+"加快页面的翻转 
+noremap j 5j
+noremap k 5k
+
+"在标签上显示数字，方便使用b+<num>来选择特定标签 ":set guioptions=rbN
+
+"更舒服的缩放键，用=代替+ 
+
+noremap = +
+
+"更舒服的导航键，n后退,前进
+"map <S-H> :back<CR> 
+map <S-L> :forward<CR>
+
+"代替上翻页
+map v <C-b>
+
+"使用B管理书签 
+noremap B <C-v><C-b> 
+
+"使用p代替n的“查找下一个”功能 
+"noremap p n
+
+"停止载入改成了s
+map s :stop<CR>
+
+"使用Windows风格的undo，复制，粘贴，剪切，全选操作 
+
+noremap <C-c> <C-v><C-c>
+noremap <C-a> <C-v><C-a>
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-x> <C-v><C-x>
+inoremap <C-a> <C-v><C-a>
+inoremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v><C-v>
+inoremap <C-x> <C-v><C-x>
+
+noremap <C-T> :downloads<CR>		"下载
+
+:set titlestring=XXX
+
+cnoremap <C-Return> <End>.com<Home><C-Right>www.<CR>
+
+"下一页
+set nextpattern='涓嬩竴椤祙涓嬩竴寮爘涓嬩竴绡噟涓嬮〉|鍚庨〉|next'
+set previouspattern='涓婁竴椤祙涓婁竴寮爘涓婁竴绡噟涓婇〉|鍓嶉〉|prev'
+
+"autocmd LocationChange .* js modes.passAllKeys = /.*(mail\.google\.com|www\.google\.com\/reader).*/.test(buffer.URL)
+
+"need 一个转换字符编码的函数
+
+"Look up the word you selected in dict.cn在dict.cn中查找所选词的英语
+command! dict -nargs=* tabopen http://dict.cn/<args>
+
+"谷歌的翻译
+command! translate -nargs=* tabopen http://translate.google.com/#en|zh-CN|<args>
+
+command! ctranslate -nargs=* tabopen http://translate.google.com/#zh_CN|en|<args>
+
+"google music
+"command! music -nargs=* tabopen http://www.google.cn/music/search?q=<args>
+"map <silent> W :exe ":music "+content.getSelection()<CR>
+
+"verycd
+command! verycd -nargs=* tabopen http://www.verycd.com/search/folders/<args>
+
+"tieba
+command! tieba -nargs=* tabopen http://tieba.baidu.com/f?kw=<args>
+
+"lyric download
+"command! lyric -nargs=* tabopen http://www.lrc123.com/?keyword=<args>
+
+command! lyric -nargs=* tabopen lyric <args>
+command! wikipedia -nargs=* tabopen wikipedia <args>
+command! music -nargs=* tabopen music <args>
+command! yinyue -nargs=* tabopen yinyue <args>
+command! google -nargs=* tabopen google <args>
+command! baidu -nargs=* tabopen baidu <args>
+command! plugin -nargs=* tabopen plugin <args>
+
+
+"taobao
+command! taobao -nargs=* tabopen http://s.taobao.com/search?q=<args>
+js <<EOF
+
+// Wiki Selected Text
+wiki_selected_text = function () 
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('wikipedia ' + str);
+}
+//google c2e selected Text
+ch2en = function()
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('translate ' + str);
+}
+en2ch = function()
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('ctranslate ' + str);
+}
+//music
+music = function()
+{
+	str = buffer.getCurrentWord()
+	//liberator.execute('music ' + str);
+	liberator.execute('music ' + str)
+}
+//verycd
+verycd = function()
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('verycd ' + str);
+}
+//lyric
+lyric = function()
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('lyric ' + str);
+}
+//yinyue
+yinyue = function()
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('yinyue ' + str);
+}
+//taobao
+taobao = function()
+{
+	str = buffer.getCurrentWord()
+	liberator.execute('taobao ' + str);
+}
+//google
+google = function()
+{
+	str = buffer.getCurrentWord();
+	liberator.execute('google ' + str);
+}
+//baidu
+baidu = function()
+{
+	str = buffer.getCurrentWord();
+	liberator.execute('baidu '+ str);
+}
+//plugin
+plugin = function()
+{
+	str = buffer.getCurrentWord();
+	liberator.execute('plugin '+ str);
+}
+EOF
+
+"设置快捷键
+map <C-w> :js wiki_selected_text() <CR>
+map <A-c> :js en2ch()<CR>
+map <A-e> :js ch2en()<CR>
+map <A-m> :js music()<CR>
+map <A-v> :js verycd()<CR>
+map <A-l> :js lyric()<CR>
+map <A-y> :js yinyue()<CR>
+map <A-t> :js taobao()<CR>
+map <A-g> :js google()<CR>
+map <A-p> :js plugin()<CR>
+
+"即时生效
+map S :so "/root/_pentadactylrc"<CR> 
+
+"编辑器
+set editor="vim -f"
