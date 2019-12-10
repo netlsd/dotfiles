@@ -1,0 +1,25 @@
+set smoothscroll true
+
+bind h tabprev
+bind l tabnext
+bind D qall
+bind H back
+bind L forward
+bind s stop
+bind <C-i> viewsource
+"go to last active tab
+bind <C-[> tab #
+bind <C-.> source
+bind / fillcmdline find
+bind n findnext 1
+bind N findnext -1
+
+bind ,g tabopen https://www.google.com
+bind <C-g> fillcmdline tabopen google
+
+
+
+unbind <C-f>
+
+
+
