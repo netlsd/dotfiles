@@ -1,0 +1,60 @@
+! vim: set filetype=xdefaults :
+! gjm scheme
+! *background: rgba:0000/0000/0000/dddd
+
+*background:    #151515
+*foreground:    #e4e4e4
+
+! black
+*color0:        #151515
+*color8:        #666666
+
+! red
+*color1:        #ff005b
+*color9:        #ff00a0
+
+! green
+*color2:        #cee318
+*color10:       #ccff00
+
+! yellow
+*color3:        #ffe755
+*color11:       #ff9f00
+
+! blue
+*color4:        #048ac7
+*color12:       #48c6ff
+
+! magenta
+*color5:        #833c9f
+*color13:       #be67e1
+
+! cyan 
+*color6:        #0ac1cd
+*color14:       #63e7f0
+
+! white
+*color7:        #e4e4e4
+*color15:       #f3f3f3
+
+
+!URxvt*transparent:true
+URxvt*font: xft:Inconsolata:bold:pixelsize=14,xft:Dejavu Sans Mono for Powerline,xft:WenQuanYi Micro Hei Mono:bold:pixelsize=14
+URxvt.scrollBar: false
+URxvt.scrollstyle: plain
+URxvt*loginShell:true
+
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,tabbedex
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.url-select.launcher: firefox
+URxvt.keysym.M-t: perl:tabbedex:new_tab
+URxvt.keysym.M-n: perl:tabbedex:next_tab
+URxvt.tabbed.no-tabbedex-keys: true
+URXvt.tabbed.reopen-on-close: yes
+URxvt.url-select.underline: true
+URxvt.url-select.button: 1
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
