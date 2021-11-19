@@ -15,6 +15,7 @@ bind n findnext 1
 bind N findnext -1
 
 bind ,g tabopen https://www.google.com
+bind ,b tabopen https://github.com/balletcrypto/ballet-crypto-app
 bind <C-g> fillcmdline tabopen google
 
 
